@@ -4,6 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "npm run build && node dist/index",
+    "build": "tsc -p .",
     "test": "npm run nyc -- test/test.ts",
     "nyc": "nyc mocha -r ts-node/register -r source-map-support/register"
   },

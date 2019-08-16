@@ -2,8 +2,6 @@ import * as express from "express";
 import { Data, endpointDecoder } from "./data";
 import { DecodeError } from "./decoder";
 
-const port = +process.env.PORT || 3000;
-
 type Req = express.Request;
 type Res = express.Response;
 const app = express();
@@ -55,7 +53,9 @@ app.all("/:key", async (req: Req, res: Res) => {
   res.status(404).send();
 });
 
-export async function run(): Promise<{
+export async function run(
+  port: number
+): Promise<{
   close: () => void;
   gc: (now: number) => void;
 }> {
@@ -64,7 +64,7 @@ export async function run(): Promise<{
   try {
     interval = setInterval(() => {
       data.gc(Date.now());
-    }, 1 * 60 * 1000);
+    }, 1 * 60 * 60 * 1000);
     server = app.listen(port, () =>
       console.log(`Server listening on port ${port}!`)
     );

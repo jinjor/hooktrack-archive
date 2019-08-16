@@ -2,7 +2,8 @@ import { run } from "../src/server";
 import fetch from "node-fetch";
 import * as assert from "assert";
 
-const origin = `http://localhost:3000`;
+const port = 3000;
+const origin = `http://localhost:${port}`;
 
 async function send(method: string, path: string, data: any): Promise<any> {
   const url = origin + path;
@@ -29,7 +30,7 @@ describe("Hooktrack", function() {
   this.timeout(30 * 1000);
   let server: any;
   before(async () => {
-    server = await run();
+    server = await run(port);
   });
   it("run", async () => {
     let res;
