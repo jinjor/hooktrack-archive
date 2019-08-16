@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "module": "commonjs",
+    "types": ["node", "mocha", "express"],
+    "pretty": true,
+    "noImplicitAny": true,
+    "strictNullChecks": false,
+    "declaration": true,
+    "removeComments": false,
+    "noUnusedLocals": false,
+    "noImplicitReturns": false,
+    "listEmittedFiles": false,
+    "listFiles": false,
+    "preserveWatchOutput": true,
+    "inlineSourceMap": true,
+    "inlineSources": true,
+    "outDir": "./dist"
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "test/**/*"]
+}
