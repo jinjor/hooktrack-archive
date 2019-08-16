@@ -2,7 +2,7 @@
   "compilerOptions": {
     "target": "es6",
     "module": "commonjs",
-    "types": ["node", "mocha", "express"],
+    "types": ["node", "express"],
     "pretty": true,
     "noImplicitAny": true,
     "strictNullChecks": false,
