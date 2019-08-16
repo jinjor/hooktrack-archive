@@ -1,14 +1,18 @@
 import * as express from "express";
 import { Data, endpointDecoder } from "./data";
 import { DecodeError } from "./decoder";
+import * as path from "path";
 
 type Req = express.Request;
 type Res = express.Response;
 const app = express();
 const data = new Data();
+const indexFile = path.resolve(__dirname, "../assets/index.html");
 
 app.use(express.json());
-
+app.get("/", async (req: Req, res: Res) => {
+  res.sendFile(indexFile);
+});
 app.post("/endpoints", async (req: Req, res: Res) => {
   let endpoint;
   try {

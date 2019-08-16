@@ -68,7 +68,7 @@ describe("Hooktrack", function() {
   it("errors", async () => {
     let res;
     res = await get(`/`);
-    assert.equal(res.status, 404);
+    assert.equal(res.status, 200);
     res = await get(`/foo`);
     assert.equal(res.status, 404);
     res = await post(`/foo`, {});
